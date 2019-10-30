@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <! — include bootstap and jquery cdn >
+<link rel="icon" href="http://18.222.224.106:500/logichaticon.ico">
+<script>
+var autoExpand = function (field) {
+
+	// Reset field height
+	field.style.height = 'inherit';
+
+	// Get the computed styles for the element
+	var computed = window.getComputedStyle(field);
+
+	// Calculate the height
+	var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+	             + parseInt(computed.getPropertyValue('padding-top'), 10)
+	             + field.scrollHeight
+	             + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+	             + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+
+	field.style.height = height + 'px';
+
+};
+
+document.addEventListener('input', function (event) {
+	if (event.target.tagName.toLowerCase() !== 'textarea') return;
+	autoExpand(event.target);
+}, false);
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  }
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        color:#f2d094;
+      }
+      input{
+        font-family: 'Montserrat', sans-serif;
+        color:#51cbee;
+              }
+     textarea {
+       font-family: 'Montserrat', sans-serif;
+       color:#51cbee;
+      }
+
+
+      html {
+
+  background: url("http://18.222.224.106:500/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  position: relative;
+}
+button {
+  background-color:#f2d094;
+  border: none;
+  color: 263844;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+button:hover {
+  background-color: #000000;
+  color: #f2d094;
+}
+input[type=text], textarea, input {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 3px solid #f2d094;
+  background: transparent;
+}
+
+input[type=text]:focus, textarea:focus, input:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 5px solid rgba(81, 203, 238, 1);
+}
+textarea {
+	min-height: 5em;
+	max-height: 50vh;
+	width: 100%;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #f2d094;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #f2d094;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #f2d094;
+}
+}
+
+
+</style>
+
+</head>
+
+<body class="center">
+  <div class=”container”>
+    <br>
+    <div class="jumbotron">
+<center>
+      <h1 class="display-4">Send Message</h1>
+
+      <br>
+      <input id="name" class="form-control" placeholder="Name">
+      <br>
+      <textarea id="message" class="form-control" placeholder="Your Message Here">
+</textarea>
+      <br>
+      <button id="send" class="btn btn-success">Send</button>
+</center>
+    </div>
+    <div id="messages">
+
+    </div>
+  </div>
+  <script>
+
+  </script>
+</body>
+
+</html>
